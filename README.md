@@ -6,4 +6,5 @@ This application consists of user validation, complete authentication and author
 Technologies used in this project are:
 MongoDb database, ExpressJS backend framework, React frontend and Node.js runtime.
 
+Application Homepage:
 ![Alt text](./client/public/Screenshot%20(322).png)
