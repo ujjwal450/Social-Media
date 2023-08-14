@@ -1,11 +1,14 @@
-import express from 'express'
-import { auth } from '../middleware/auth'
-import {getFeedPosts, getUserPosts, likePost} from '../controllers/posts.js'
+import express from "express";
+import { getFeedPosts, getUserPosts, likePost } from "../controllers/posts.js";
+import { verifyToken } from "../middleware/auth.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", auth, getFeedPosts )
-router.get("/:userId/posts", auth, getUserPosts )
+/* READ */
+router.get("/", verifyToken, getFeedPosts);
+router.get("/:userId/posts", verifyToken, getUserPosts);
 
-router.patch("/:id/like", auth, likePost)
-export default router
+/* UPDATE */
+router.put("/:id/like", verifyToken, likePost);
+
+export default router;
